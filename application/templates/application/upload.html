@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<br>
+<br>
+
+<div class="container">
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Upload Here </h4><h6>Only Json Files</h6>
+    <p class="card-text">
+        <form method="post" class="post-form" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </p>
+        {% if messages %}
+        {% for display in messages %}
+        {{display}}
+        {% endfor %}
+        {% endif %}
+
+  </div>
+
+</div>
+</div>
+<br><br><br>
+
+<center>
+<div>
+    <a href="{% url 'index' %}" class="btn btn-info">Back</a>
+</div>
+</center>
+</body>
+</html>

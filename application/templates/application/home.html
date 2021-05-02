@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+      {% load static %}
+    <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+</head>
+<body>
+<center><img src="{% static 'images/welcome.png'%}"/></center>
+
+<br> <br>
+<center><a href = "{% url 'login' %}" class = "btn btn-info">Login</a></center><br>
+
+</body>
+</html>

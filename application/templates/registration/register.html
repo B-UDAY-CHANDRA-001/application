@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    {% load static %}
+       <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <h1>Registration Page!</h1>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="card-body">
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <fieldset class="form-group">
+
+            {% if form.errors %}
+            <p>There are errors in the form!</p>
+            {% endif %}
+
+            {{ form.as_p }}
+        </fieldset>
+        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+        {% if messages %}
+        {% for display in messages %}
+        {{display}}
+        {% endfor %}
+        {% endif %}
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{% url 'login' %}">SignIn</a>
+        </small>
+    </div>
+  </div>
+</div>
+</body>
+</html>

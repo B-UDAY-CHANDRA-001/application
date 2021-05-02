@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% load static %}
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+
+    Financepeer
+  </a>
+    <span ><a href="accounts/logout">Logout</a></span>
+</nav>
+
+
+<div class="container">
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Index page </h4>
+    <p class="card-text">
+        {% if user.is_authenticated %}
+        Welcome: {{ user.username }}
+
+        {% else %}
+        <h2>You are not logged in.</h2>
+        {% endif %}
+        </p>
+  </div>
+
+</div>
+    <br>
+
+</div>
+
+<div>
+<center><a href = "upload" class = "btn btn-info">Upload</a>
+<a href = "application/filedata" class = "btn btn-info">FilesData</a>
+</center>
+</div>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+        {% load static %}
+       <link rel = "stylesheet" href = "{% static 'css/bootstrap.min.css' %}"/>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+
+    {% if form.errors %}
+    <p>There's something wrong with what you entered!</p>
+    {% endif %}
+
+    {% if next %}
+    <p>Hey, you can't access that page.</p>
+    {% endif %}
+    <br><br><br><br>
+<center>
+<div class="card" style="width: 40rem;">
+  <div class="card-body">
+    <h2 class="card-title">LogIn</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <p>Username: {{ form.username }}</p>
+        <p>Password: {{ form.password }}</p>
+        <button class="btn btn-outline-info" type="submit">LogIn</button>
+
+        <input type="hidden" name="next" value="{{ next }}">
+
+    </form>
+        <div class="border-top pt-3">
+        <small class="text-muted">
+        New User? <a class="ml-2" href="{% url 'register' %}">Register</a>
+        </small>
+        </div>
+
+  </div>
+</div>
+</center>
+
+
+</body>
+</html>
